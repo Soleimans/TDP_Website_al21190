@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mana Digitālā Pieredze LU | Andrejs Ločs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <span>Digitālā Pieredze LU</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#sakums">Sākums</a></li>
+            <li><a href="digitala-skola.html">Digitālā skola</a></li>
+            <li><a href="studiju-izvele.html">Studiju izvēle</a></li>
+            <li><a href="digitalie-celi.html">Digitālie ceļi</a></li>
+            <li><a href="e-studijas.html">E-studijas</a></li>
+            <li><a href="tiessaistes-lekcijas.html">Tiešsaistes lekcijas</a></li>
+        </ul>
+        <button class="theme-toggle">🌓</button>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+</header>
+
+<main>
+    <section id="sakums" class="hero">
+        <h1>Mana Digitālā Pieredze Latvijas Universitātē</h1>
+        <img src="../public/images/main.jpg" alt="Digitālās studijas LU - noskaņas attēls">
+        <p>Mans ceļojums digitālajā pasaulē caur mācību procesu - no vidusskolas līdz Latvijas Universitātei. Šajā vietnē dalīšos ar savu pieredzi un atziņām par digitālo tehnoloģiju lomu izglītības procesā.</p>
+        <p class="author">Autors: Andrejs Ločs</p>
+    </section>
+
+    <section class="social-media">
+        <h2>Seko man sociālajos medijos</h2>
+        <p>Uzzini vairāk par manu digitālo pieredzi un citas atziņas, sekojot man šeit:</p>
+        <div class="social-icons">
+            <a href="#" class="social-icon">
+                <span>📘</span>
+                <p>Facebook</p>
+            </a>
+            <a href="#" class="social-icon">
+                <span>📸</span>
+                <p>Instagram</p>
+            </a>
+            <a href="#" class="social-icon">
+                <span>🐦</span>
+                <p>Twitter</p>
+            </a>
+            <a href="#" class="social-icon">
+                <span>📹</span>
+                <p>YouTube</p>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-info">
+        <p>Darba nosaukums: Mana Digitālā Pieredze LU</p>
+        <p>Autors: Andrejs Ločs</p>
+        <p>Latvijas Universitāte, 2025</p>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025.</p>
+    </div>
+</footer>
+
+<script>
+    // Tumšā/gaišā režīma pārslēgšana
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.querySelector('.theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Pārbauda, vai lietotājam jau ir saglabāta tēmas preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        } else if (currentTheme === 'light') {
+            document.body.setAttribute('data-theme', 'light');
+            themeToggle.textContent = '🌑';
+        } else {
+            // Ja nav saglabātas preferences, izmanto sistēmas iestatījumu
+            if (prefersDarkScheme.matches) {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                document.body.setAttribute('data-theme', 'light');
+                themeToggle.textContent = '🌑';
+            }
+        }
+
+        // Tēmas pārslēgšanas pogas funkcionalitāte
+        themeToggle.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌑';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            }
+        });
+
+        // Mobilās izvēlnes pārslēgšana
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Aizvērt mobilo izvēlni, kad uzklikšķina uz saites
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    });
+</script>
+</body>
+</html>
