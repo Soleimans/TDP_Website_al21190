@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studiju izvēle | Mana Digitālā Pieredze LU</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">
+      <a href="index.html">Digitālā Pieredze LU</a>
+      <button class="theme-toggle">🌓</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Sākums</a></li>
+      <li><a href="digitala-skola.html">Digitālā skola</a></li>
+      <li><a href="studiju-izvele.html">Studiju izvēle</a></li>
+      <li><a href="digitalie-celi.html">Digitālie līdzekļi</a></li>
+      <li><a href="e-studijas.html">E-studijas</a></li>
+      <li><a href="tiessaistes-lekcijas.html">Tiešsaistes lekcijas</a></li>
+    </ul>
+    <button class="mobile-menu-btn">☰</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Studiju izvēle</h1>
+
+    <div class="hero-content-area">
+      <div class="content-text">
+        <p>Studiju programmas izvēle bija sarežģīts process, kas prasīja daudz pētīšanas un salīdzināšanas. Vairākas reizes apmeklēju izstādi "Skola", kur personīgi parunājos ar studentiem no daudzām augstskolām un guvu priekšstatu par dažādām profesijām.</p>
+
+        <p>Izmantoju augstskolu mājaslapas, lai izpētītu visas piedāvātās studiju programmas un to saturu. Analizēju kursu aprakstus, darba iespējas un sagaidāmo nākotni.</p>
+
+        <p>Lai saprastu darba tirgus reālo situāciju, izmantoju dažādas sludinājumu platformas. Tas palīdzēja izprast, kāds atalgojums mani sagaida dažādās nozarēs un kādas profesijas pašlaik ir visvairāk pieprasītas.</p>
+
+        <p>Galu galā izvēlējos studēt Latvijas Universitātes bakalaura programmā Datorzinātnes, jo šī programma sola ne tikai labu karjeras perspektīvu, bet arī atbilst manām interesēm par tehnoloģijām un programmēšanu.</p>
+      </div>
+
+      <img src="../public/images/STUDIJAS.png" alt="Studiju izvēle - ceļš uz pareizo karjeru">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-info">
+    <p>Darba nosaukums: Mana Digitālā Pieredze Mācoties LU</p>
+    <p>Andrejs Ločs, 2025</p>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2025</p>
+  </div>
+</footer>
+
+<script>
+  // Tumšā/gaišā režīma pārslēgšana
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      themeToggle.textContent = '☀️';
+    } else if (currentTheme === 'light') {
+      document.body.setAttribute('data-theme', 'light');
+      themeToggle.textContent = '🌑';
+    } else {
+      if (prefersDarkScheme.matches) {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+      } else {
+        document.body.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '🌑';
+      }
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (document.body.getAttribute('data-theme') === 'dark') {
+        document.body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌑';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
+      }
+    });
+
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  });
+</script>
+</body>
+</html>

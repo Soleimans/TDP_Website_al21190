@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #5E60CE;    /* Royal Purple */
-    --secondary-color: #D0E2CD;  /* Sage Green */
-    --background-color: #F0F7EE; /* Mint Cream */
-    --text-color: #233D4D;       /* Deep Navy */
+    --primary-color: #5E60CE;
+    --secondary-color: #D0E2CD;
+    --background-color: #F0F7EE;
+    --text-color: #233D4D;
     --card-background: #FFFFFF;
     --header-background: #D0E2CD;
     --footer-background: #E2EAE0;
@@ -10,10 +10,10 @@
 }
 
 [data-theme="dark"] {
-    --primary-color: #5065F6;    /* Indigo Blue */
-    --secondary-color: #1E2A3B;  /* Navy Charcoal */
-    --background-color: #121721; /* Deep Charcoal */
-    --text-color: #E3E8EF;       /* Soft White */
+    --primary-color: #5065F6;
+    --secondary-color: #1E2A3B;
+    --background-color: #121721;
+    --text-color: #E3E8EF;
     --card-background: #1A2234;
     --header-background: #1E2A3B;
     --footer-background: #1A2234;
@@ -45,7 +45,7 @@ header {
 
 nav {
     display: flex;
-    justify-content: flex-end; /* Change from space-between to flex-end */
+    justify-content: space-between;
     align-items: center;
     max-width: 90%;
     margin: 0 auto;
@@ -57,7 +57,6 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--primary-color);
-    margin-right: auto; /* This pushes everything else to the right */
 }
 
 .logo img {
@@ -66,10 +65,34 @@ nav {
     filter: grayscale(100%);
 }
 
+.logo a {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s, opacity 0.3s;
+    border: none !important;
+    outline: none !important;
+}
+
+.logo a:hover {
+    color: var(--primary-color) !important;
+    opacity: 0.8;
+    text-decoration: none !important;
+}
+
+.logo a:visited,
+.logo a:active,
+.logo a:focus {
+    color: var(--primary-color) !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
-    margin-right: 20px; /* Reduced from 60px to bring nav links closer to the theme toggle */
+    margin: 0 20px;
 }
 
 .nav-links li {
@@ -93,7 +116,7 @@ nav {
     cursor: pointer;
     font-size: 1.2rem;
     color: var(--text-color);
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .mobile-menu-btn {
@@ -126,21 +149,63 @@ main {
 
 .hero h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: var(--text-color);
 }
 
-.hero p {
-    font-size: 1.2rem;
+.content-text {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    text-align: left;
     max-width: 800px;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
 }
 
 .hero img {
-    max-width: 40%;  /* Changed from 100% to 60% */
+    max-width: 400px;
+    width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.content-text p {
+    margin-bottom: 1.5rem;
+}
+
+.content-text strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.hero-content-area {
+    background: linear-gradient(to right,
+    var(--secondary-color) 0%,
+    var(--background-color) 15%,
+    var(--background-color) 85%,
+    var(--secondary-color) 100%);
+    margin: 0 -1rem;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-content-area .content-text {
+    margin: 0 auto 2rem auto;
+}
+
+.hero-content-area img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
     box-shadow: 0 4px 8px var(--shadow-color);
 }
 
@@ -179,21 +244,53 @@ main {
     align-items: center;
     text-decoration: none;
     color: var(--text-color);
-    transition: transform 0.3s;
+    transition: transform 0.3s, color 0.3s;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: var(--background-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    min-width: 80px;
 }
 
 .social-icon:hover {
     transform: translateY(-5px);
     color: var(--primary-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-.social-icon span {
-    font-size: 2.5rem;
+.social-icon-symbol {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 0.5rem;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.facebook .social-icon-symbol {
+    background-color: #1877F2;
+}
+
+.instagram .social-icon-symbol {
+    background: linear-gradient(45deg, #F56040, #E1306C, #833AB4);
+}
+
+.linkedin .social-icon-symbol {
+    background-color: #0A66C2;
+}
+
+.youtube .social-icon-symbol {
+    background-color: #FF0000;
 }
 
 .social-icon p {
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
 }
 
 footer {
@@ -220,6 +317,14 @@ footer {
     opacity: 0.8;
 }
 
+[data-theme="dark"] .hero-content-area {
+    background: linear-gradient(to right,
+    var(--secondary-color) 0%,
+    var(--background-color) 15%,
+    var(--background-color) 85%,
+    var(--secondary-color) 100%);
+}
+
 @media screen and (max-width: 768px) {
     .nav-links {
         display: none;
@@ -244,12 +349,16 @@ footer {
 
     .mobile-menu-btn {
         display: block;
-        margin-left: 10px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .theme-toggle {
-        position: relative;
-        margin-right: 10px;
+        margin-left: 0;
     }
 
     .social-icons {
@@ -257,11 +366,37 @@ footer {
         gap: 1.5rem;
     }
 
+    .content-text {
+        font-size: 1rem;
+        margin: 0 auto 1.5rem auto;
+        padding: 1.5rem;
+    }
+
     .hero img {
-        max-width: 60%;  /* Make image slightly bigger on mobile but still smaller than original */
+        max-width: 80%;
     }
 
     .hero h1 {
-        font-size: 1.8rem; /* Smaller font size for title on mobile */
+        font-size: 1.8rem;
+    }
+
+    .hero-content-area {
+        margin: 0 -1rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-content-area img {
+        max-width: 80%;
+    }
+
+    .social-icon {
+        min-width: 70px;
+        padding: 0.8rem;
+    }
+
+    .social-icon-symbol {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
     }
 }

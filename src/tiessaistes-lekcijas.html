@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiešsaistes lekcijas | Mana Digitālā Pieredze LU</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">
+      <a href="index.html">Digitālā Pieredze LU</a>
+      <button class="theme-toggle">🌓</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Sākums</a></li>
+      <li><a href="digitala-skola.html">Digitālā skola</a></li>
+      <li><a href="studiju-izvele.html">Studiju izvēle</a></li>
+      <li><a href="digitalie-celi.html">Digitālie līdzekļi</a></li>
+      <li><a href="e-studijas.html">E-studijas</a></li>
+      <li><a href="tiessaistes-lekcijas.html">Tiešsaistes lekcijas</a></li>
+    </ul>
+    <button class="mobile-menu-btn">☰</button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Tiešsaistes lekcijas</h1>
+
+    <div class="hero-content-area">
+      <div class="content-text">
+        <p>COVID-19 dēļ man klātienē sanāca pamācīties tikai nepilnu semestri un tad viss kādu laiku pārgāja attālināti. Lekcijām izmantojām gan Zoom, gan Microsoft Teams platformas.</p>
+
+        <p>Sākumā man bija ļoti smagi mācīties attālināti. Trūka tiešas komunikācijas, motivācija bija zemāka, un mājās bija daudz vieglāk atslābināties. Vajadzēja laiku, lai pielāgotos šim formātam un izstrādātu disciplīnu.</p>
+
+        <p>Tagad jau esmu pieradis pie attālinātā formāta un ir grūti piespiesties iet uz lekcijām, ja iespējams mācīties no mājām. Īpaši tāpēc, ka ietaupu laiku ceļam un varu labāk plānot savu dienu.</p>
+
+        <p>Tas ir īpaši svarīgi, jo daļu laika aizņem pilnas slodzes darbs, kā jau lielai daļai studentu. Attālinātās lekcijas ļauj labāk kombinēt studijas ar darbu un citām saistībām.</p>
+      </div>
+
+      <img src="../public/images/teams.png" alt="Tiešsaistes lekcijas - attālinātās mācības">
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-info">
+    <p>Darba nosaukums: Mana Digitālā Pieredze Mācoties LU</p>
+    <p>Andrejs Ločs, 2025</p>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2025</p>
+  </div>
+</footer>
+
+<script>
+  // Tumšā/gaišā režīma pārslēgšana
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      themeToggle.textContent = '☀️';
+    } else if (currentTheme === 'light') {
+      document.body.setAttribute('data-theme', 'light');
+      themeToggle.textContent = '🌑';
+    } else {
+      if (prefersDarkScheme.matches) {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+      } else {
+        document.body.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '🌑';
+      }
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (document.body.getAttribute('data-theme') === 'dark') {
+        document.body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌑';
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
+      }
+    });
+
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  });
+</script>
+</body>
+</html>
